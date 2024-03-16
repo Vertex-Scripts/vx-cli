@@ -29,9 +29,7 @@ fn main() -> anyhow::Result<()> {
                 path = PathBuf::from(".");
             }
 
-            commands::pack::handle_command(PathBuf::from(
-                "E:\\org\\vertexscripts\\scripts\\vx_reports",
-            ))
+            commands::pack::handle_command(path)
         }
     };
 
