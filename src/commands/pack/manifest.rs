@@ -4,6 +4,8 @@ use std::sync::{Arc, Mutex};
 
 use rlua::Lua;
 
+pub const INTERCEPTOR_STR: &'static str = include_str!("interceptor.lua");
+
 #[derive(Debug, Clone)]
 pub struct FxManifest {
     pub ignored_paths: Vec<String>,

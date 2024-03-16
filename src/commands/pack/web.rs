@@ -26,7 +26,7 @@ pub fn build_web_project(context: &PackContext) -> anyhow::Result<()> {
 
     let mut package_manager = detect_package_manager(context.root_path.join("web"))?;
     match package_manager {
-        NotFound => {
+        PackageManger::NotFound => {
             log::error!("No lockfile found in web project, using npm as default");
             package_manager = PackageManger::Npm;
         }

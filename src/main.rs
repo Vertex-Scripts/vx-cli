@@ -21,9 +21,18 @@ fn main() -> anyhow::Result<()> {
 
     let cli = Cli::parse();
     let result = match &cli.command {
-        Commands::Pack {} => commands::pack::handle_command(PathBuf::from(
-            "E:\\org\\vertexscripts\\scripts\\vx_reports",
-        )),
+        Commands::Pack {} => {
+            let path;
+            if cfg!(debug_assertions) {
+                path = PathBuf::from("E:\\org\\vertexscripts\\scripts\\vx_reports");
+            } else {
+                path = PathBuf::from(".");
+            }
+
+            commands::pack::handle_command(PathBuf::from(
+                "E:\\org\\vertexscripts\\scripts\\vx_reports",
+            ))
+        }
     };
 
     match result {

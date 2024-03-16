@@ -14,8 +14,6 @@ use crate::commands::pack::web::build_web_project;
 mod manifest;
 mod web;
 
-pub const INTERCEPTOR_STR: &'static str = include_str!("interceptor.lua");
-
 struct PackContext {
     root_path: PathBuf,
     manifest: FxManifest,
