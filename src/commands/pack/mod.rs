@@ -1,12 +1,8 @@
-use std::{env, fmt::format, fs, path::PathBuf};
-use std::io::{Error, ErrorKind, Write};
-use std::iter::Zip;
-use std::path::Path;
-use std::sync::{Arc, Mutex};
+use std::fs;
+use std::path::PathBuf;
 
-use anyhow::{anyhow, Context};
+use anyhow::anyhow;
 use glob::Pattern;
-use rlua::{FromLuaMulti, Lua, RluaCompat};
 
 use crate::commands::pack::manifest::{FxManifest, read_fxmanifest_file};
 use crate::commands::pack::web::build_web_project;
@@ -75,7 +71,7 @@ fn create_archive(context: &PackContext) -> anyhow::Result<()> {
         }
 
         if path.is_file() {
-            let mut relative_path = path.strip_prefix(&context.root_path).unwrap().to_path_buf();
+            let relative_path = path.strip_prefix(&context.root_path).unwrap().to_path_buf();
             log::debug!("Adding file: {}", path.display());
 
             zip.start_file(

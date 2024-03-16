@@ -13,7 +13,7 @@ enum PackageManger {
 }
 
 pub fn build_web_project(context: &PackContext) -> anyhow::Result<()> {
-    let ui_page = match context.manifest.ui_page {
+    match context.manifest.ui_page {
         Some(ref page) => {
             if !page.eq("web/dist/index.html") {
                 return Err(anyhow!("As of now, only web/dist/index.html is supported"));
