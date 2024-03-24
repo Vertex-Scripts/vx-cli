@@ -4,7 +4,7 @@ use std::path::PathBuf;
 use anyhow::anyhow;
 use glob::Pattern;
 
-use crate::commands::pack::manifest::{FxManifest, read_fxmanifest_file};
+use crate::commands::pack::manifest::{read_fxmanifest_file, FxManifest};
 use crate::commands::pack::web::build_web_project;
 
 mod manifest;

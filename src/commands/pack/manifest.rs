@@ -19,9 +19,6 @@ impl FxManifest {
                 ".git/**".into(),
                 ".vscode/**".into(),
                 ".gitattributes".into(),
-                "README".into(),
-                "README.md".into(),
-                "LICENSE".into(),
             ],
             ui_page: None,
         }
